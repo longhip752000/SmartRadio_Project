@@ -1,0 +1,94 @@
+<?php
+
+use News\Post\post_dao;
+use News\Post\PostDTO;
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <?php
+    if (isset($_SESSION['post_list'])) {
+        $list = $_SESSION['post_list'];
+    }
+    ?>
+    <div class="post-table">
+        <table border="1">
+
+            <thead>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Create date</th>
+                <th>Modify date</th>
+                <th>Approve date</th>
+                <th>Create user</th>
+                <th>Approve user</th>
+                <th>status</th>
+                <th>Subnews id</th>
+                <th>Action</th>
+                <th>Action</th>
+
+            </thead>
+            <tbody>
+                <?php foreach ($list as $p) :  ?>
+                    <tr>
+                        <td><?php echo $p->getPost_id() ?></td>
+                        <td><?php echo $p->getTitle() ?></td>
+                        <td><?php echo $p->getContent() ?></td>
+                        <td><?php echo $p->getCreate_date() ?></td>
+                        <td><?php echo $p->getModify_date() ?></td>
+                        <td><?php echo $p->getApprove_date() ?></td>
+                        <td><?php echo $p->getCreate_user() ?></td>
+                        <td><?php echo $p->getApprove_user() ?></td>
+                        <td><?php echo $p->getStatus() ?></td>
+                        <td><?php echo $p->getSubnews_id() ?></td>
+                        <td>
+                            <form method="post" action="update">
+                                <input type="submit" name="update" value="Update">
+                                <input type="hidden" value="<?=$p->getPost_id()?>" name="updateID">
+                            </form>
+                        </td>
+
+                        <td>
+                            <form method="post" action="delete">
+                                <input type="submit" name="delete" value="Delete" onclick="return delColfirm()">
+                                <input type="hidden" value="<?=$p->getPost_id()?>" name="deleteID">
+                            </form>
+                        </td>
+                    </tr>
+
+                    <script>
+                        function delColfirm() {
+                            $result = confirm('Are you sure to delete this post?');
+                            if ($result) {
+                                return true;
+                            }
+                            return false;
+                        }
+                    </script>
+            </tbody>
+
+
+
+        <?php endforeach; ?>
+        </table>
+    </div>
+
+    <form method="post" action="create">
+        <input name="create" type="submit" value="Create">
+
+    </form>
+
+
+</body>
+</html>

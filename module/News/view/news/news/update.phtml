@@ -1,0 +1,84 @@
+<?php
+// session_start();
+
+use News\Post\post_dao;
+use News\Post\PostDTO;
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <metaid name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="../assets/css/test.css">
+</head>
+
+<body>
+
+  <?php
+  // if (isset($_POST['id_update'])) {
+  //   $post = new post_dao();
+  //   //$_POST['post_update'] = $post->getPostById($_POST['id_update']);
+  //   $test = $post->getPostById($_POST['id_update']);
+  //   // $post_up = $_POST['post_update'];
+  // }
+  if (isset($_POST['post'])) {
+    $post = $_POST['post'];
+  }
+  ?>
+
+  <form method="post" action="confirm">
+
+    <h1>UPDATE FORM</h1>
+    <div class="formcontainer">
+      <hr />
+      <div class="container">
+        <label for="name"><strong>Id</strong></label>
+        <input type="text" id="id" name="postID" value="<?= $post->getPost_id() ?>" readonly> <br><br>
+        
+        <label for="title"><strong>Title</strong></label>
+        <input type="text" id="title" name="title_update" value="<?= $post->getTitle() ?>"> <br><br>
+
+        <label for="content"><strong>Content</strong></label>
+        <input type="text" id="content" name="content_update" value="<?= $post->getContent() ?>"> <br><br>
+
+        <label for="cd"><strong>Create date</strong></label>
+        <input type="date" id="ce" name="cd_update" value="<?= $post->getCreate_date() ?>"> <br><br>
+
+        <label for="md"><strong>Modify date</strong></label>
+        <input type="date" id="md" name="md_update" value="<?= $post->getModify_date() ?>"> <br><br>
+
+        <label for="ad"><strong>Approve date</strong></label>
+        <input type="date" id="ad" name="ad_update" value="<?= $post->getApprove_date() ?>"> <br><br>
+
+        <label for="cu"><strong>Create User</strong></label>
+        <input type="date" id="cu" name="cu_update" value="<?= $post->getCreate_user() ?>"> <br><br>
+
+        <label for="au"><strong>Approve_user</strong></label>
+        <input type="date" id="au" name="au_update" value="<?= $post->getApprove_user() ?>"> <br><br>
+
+        <label for="status"><strong>Status</strong></label>
+        <input type="text" id="status" name="status_update" value="<?= $post->getStatus() ?>"> <br><br>
+
+        <label for="si"><strong>SubNews ID</strong></label>
+        <input type="text" id="si" name="si" value="<?= $post->getSubnews_id() ?>" readonly> <br><br>
+
+
+      </div>
+    </div>
+
+
+    <button name="update" type="submit" value="update">UPDATE</button>
+
+    </div>
+  </form>
+
+
+</body>
+
+</html>

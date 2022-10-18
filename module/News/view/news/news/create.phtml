@@ -1,0 +1,66 @@
+<?php
+use News\Post\post_dao;
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <metaid name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Post</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link rel="stylesheet" href="../assets/css/test.css">
+</head>
+
+<body>
+  <form method="post" action="create">
+    <h1>CREATE FORM</h1>
+
+    <div class="formcontainer">
+      <hr />
+      <div class="container">
+        <label for="name"><strong>Id</strong></label>
+        <input type="text" placeholder="Input your ID"id="id" name="id" required> <br><br>
+
+        <label for="title"><strong>Title</strong></label>
+        <input type="text" placeholder="Input the title"id="title" name="title" > <br><br>
+
+        <label for="content"><strong>Content</strong></label>
+        <input type="text" placeholder="Input the content"id="content" name="content"> <br><br>
+
+        <label for="cd"><strong>Create date</strong></label>
+        <input type="datetime-local" placeholder="Input create date" id="ce" name="cd"> <br><br>
+
+        <label for="md"><strong>Modify date</strong></label>
+        <input type="datetime-local" placeholder="Input modify date" id="md" name="md"> <br><br>
+
+        <label for="ad"><strong>Approve date</strong></label>
+        <input type="datetime-local" placeholder="Input approve date" id="ad" name="ad"> <br><br>
+
+        <label for="cu"><strong>Create User</strong></label>
+        <input type="datetime-local" placeholder="Input create user" id="cu" name="cu"> <br><br>
+
+        <label for="au"><strong>Approve_user</strong></label>
+        <input type="datetime-local" placeholder="Input Approve user" id="au" name="au"> <br><br>
+
+        <label for="status"><strong>Status</strong></label>
+        <input type="text" placeholder="Input the status" id="status" name="status"> <br><br>
+
+        <label for="si"><strong>SubNews ID</strong></label>
+        <input type="text" placeholder="Input SubNews ID" id="si" name="si"> <br><br>
+         
+
+      </div>
+      <button name="create" type="submit" value="">CREATE</button>
+      
+    </div>
+  </form>
+<h1>
+  
+</h1>
+</body>
+
+</html>
